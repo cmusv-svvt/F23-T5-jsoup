@@ -278,7 +278,7 @@ public final class CharacterReader {
 
     void mark() {
         // make sure there is enough look ahead capacity
-        if (bufLength - bufPos < minReadAheadLen)
+        if (bufLength - bufPos >= minReadAheadLen)
             bufSplitPoint = 0;
 
         bufferUp();
