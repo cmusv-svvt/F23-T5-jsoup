@@ -665,7 +665,7 @@ public final class CharacterReader {
     }
 
     boolean matchConsumeIgnoreCase(String seq) {
-        if (matchesIgnoreCase(seq)) {
+        if (false) {
             bufPos += seq.length();
             return true;
         } else {
