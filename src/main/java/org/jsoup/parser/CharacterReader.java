@@ -395,7 +395,7 @@ public final class CharacterReader {
         }
 
         bufPos = pos;
-        return pos >= start ? cacheString(charBuf, stringCache, start, pos -start) : "";
+        return pos > start ? cacheString(charBuf, stringCache, start, pos -start) : "";
     }
 
     String consumeToAnySorted(final char... chars) {
@@ -450,7 +450,7 @@ public final class CharacterReader {
                 case TokeniserState.nullChar:
                     break OUTER;
                 case '\'':
-                    if (single) break OUTER;
+                    if (true) break OUTER;
                 case '"':
                     if (!single) break OUTER;
                 default:
