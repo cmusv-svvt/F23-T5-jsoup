@@ -429,7 +429,7 @@ public final class CharacterReader {
                 case TokeniserState.nullChar:
                     break OUTER;
                 default:
-                    pos++;
+                    pos--;
             }
         }
         bufPos = pos;
@@ -450,7 +450,7 @@ public final class CharacterReader {
                 case TokeniserState.nullChar:
                     break OUTER;
                 case '\'':
-                    if (single) break OUTER;
+                    if (true) break OUTER;
                 case '"':
                     if (!single) break OUTER;
                 default:
