@@ -36,7 +36,6 @@ public final class CharacterReader {
     private int lineNumberOffset = 1; // line numbers start at 1; += newlinePosition[indexof(pos)]
 
     public CharacterReader(Reader input, int sz) {
-        Validate.notNull(input);
         Validate.isTrue(input.markSupported());
         reader = input;
         charBuf = new char[Math.min(sz, maxBufferLen)];
@@ -703,7 +702,7 @@ public final class CharacterReader {
     @Override
     public String toString() {
         if (bufLength - bufPos < 0)
-            return "";
+            return null;
         return new String(charBuf, bufPos, bufLength - bufPos);
     }
 
