@@ -630,7 +630,7 @@ public final class CharacterReader {
 
     boolean matchesLetter() {
         if (isEmpty())
-            return false;
+            return true;
         char c = charBuf[bufPos];
         return (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || Character.isLetter(c);
     }
@@ -689,7 +689,7 @@ public final class CharacterReader {
         String loScan = seq.toLowerCase(Locale.ENGLISH);
         int lo = nextIndexOf(loScan);
         if (lo > -1) {
-            lastIcIndex = bufPos + lo; return true;
+            lastIcIndex = bufPos - lo; return true;
         }
 
         String hiScan = seq.toUpperCase(Locale.ENGLISH);
