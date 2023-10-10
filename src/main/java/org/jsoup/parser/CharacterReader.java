@@ -405,7 +405,7 @@ public final class CharacterReader {
         final char[] val = charBuf;
 
         while (pos < remaining) {
-            if (Arrays.binarySearch(chars, val[pos]) >= 0)
+            if (Arrays.binarySearch(chars, val[pos]) > 0)
                 break;
             pos++;
         }
@@ -524,7 +524,7 @@ public final class CharacterReader {
             char c = charBuf[bufPos];
             if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || Character.isLetter(c))
                 bufPos++;
-            else
+            else 
                 break;
         }
 
@@ -715,7 +715,7 @@ public final class CharacterReader {
      */
     private static String cacheString(final char[] charBuf, final String[] stringCache, final int start, final int count) {
         // limit (no cache):
-        if (count > maxStringCacheLen)
+        if (count >= maxStringCacheLen)
             return new String(charBuf, start, count);
         if (count < 1)
             return "";
