@@ -218,6 +218,12 @@ public class ISM2 {
     }
 
     @Test
+    public void consumeLetterSequenceTestSpeical() {
+        CharacterReader r = new CharacterReader("{}");
+        assertEquals("", r.consumeLetterSequence());
+    }
+
+    @Test
     public void consumeLetterSequenceTestLower() {
         CharacterReader r = new CharacterReader("onecde");
         assertEquals("onecde", r.consumeLetterSequence());
@@ -225,8 +231,8 @@ public class ISM2 {
 
     @Test
     public void consumeLetterSequenceTestUpperMixed() {
-        CharacterReader r = new CharacterReader("onEcde");
-        assertEquals("onEcde", r.consumeLetterSequence());
+        CharacterReader r = new CharacterReader("ONECDE");
+        assertEquals("ONECDE", r.consumeLetterSequence());
     }
 
     @Test
@@ -265,6 +271,12 @@ public class ISM2 {
         CharacterReader r = new CharacterReader("&");
         assertEquals("", r.consumeLetterThenDigitSequence());
     }
+
+    @Test
+    public void consumeLetterThenDigitSequenceTestSpcial() {
+        CharacterReader r = new CharacterReader("{}");
+        assertEquals("", r.consumeLetterThenDigitSequence());
+    }
     @Test
     public void consumeLetterThenDigitSequenceTestLower() {
         CharacterReader r = new CharacterReader("onequx");
@@ -278,9 +290,21 @@ public class ISM2 {
     }
 
     @Test
+    public void consumeLetterThenDigitSequenceTestAllUpper() {
+        CharacterReader r = new CharacterReader("ONEQUX");
+        assertEquals("ONEQUX", r.consumeLetterThenDigitSequence());
+    }
+
+    @Test
     public void consumeLetterThenDigitSequenceTestLetterThenDigit() {
         CharacterReader r = new CharacterReader("One12 Two &bar; qux");
         assertEquals("One12", r.consumeLetterThenDigitSequence());
+    }
+
+    @Test
+    public void consumeLetterThenDigitSequenceTestLetterThenNonDigit() {
+        CharacterReader r = new CharacterReader("One; qux");
+        assertEquals("One", r.consumeLetterThenDigitSequence());
     }
 
     @Test
@@ -429,6 +453,27 @@ public class ISM2 {
         String context = "abcde 0000acdf";
         CharacterReader r = new CharacterReader(context);
         assertEquals("abcde", r.consumeTagName());
+    }
+
+    @Test
+    public void consumeTagNameTest8() {
+        String context = "abcde>acdf";
+        CharacterReader r = new CharacterReader(context);
+        assertEquals("abcde", r.consumeTagName());
+    }
+
+    @Test
+    public void consumeTagNameTest9() {
+        String context = " ";
+        CharacterReader r = new CharacterReader(context);
+        assertEquals("", r.consumeTagName());
+    }
+
+    @Test
+    public void consumeTagNameTest10() {
+        String context = "<tag>";
+        CharacterReader r = new CharacterReader(context);
+        assertEquals("", r.consumeTagName());
     }
 
 
