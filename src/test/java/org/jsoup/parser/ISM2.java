@@ -212,6 +212,12 @@ public class ISM2 {
 
     // Letter Sequence
     @Test
+    public void consumeLetterSequenceTestNull() {
+        CharacterReader r = new CharacterReader("&");
+        assertEquals("", r.consumeLetterSequence());
+    }
+
+    @Test
     public void consumeLetterSequenceTestLower() {
         CharacterReader r = new CharacterReader("onecde");
         assertEquals("onecde", r.consumeLetterSequence());
@@ -255,6 +261,11 @@ public class ISM2 {
 
     //consumeLetterThenDigitSequence()
     @Test
+    public void consumeLetterThenDigitSequenceTestNull() {
+        CharacterReader r = new CharacterReader("&");
+        assertEquals("", r.consumeLetterThenDigitSequence());
+    }
+    @Test
     public void consumeLetterThenDigitSequenceTestLower() {
         CharacterReader r = new CharacterReader("onequx");
         assertEquals("onequx", r.consumeLetterThenDigitSequence());
@@ -285,6 +296,11 @@ public class ISM2 {
     }
 
     // consumeHexSequence
+    @Test
+    public void consumeHexSequenceTestNull() {
+        CharacterReader r = new CharacterReader("&");
+        assertEquals("", r.consumeHexSequence());
+    }
     @Test
     public void consumeHexSequenceTestAllLowerHex() {
         CharacterReader r = new CharacterReader("bdecdecb");
