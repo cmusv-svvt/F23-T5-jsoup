@@ -114,7 +114,7 @@ public class ISM1 {
     }
 
     @Test
-    public void varyBufferContent1NextIndexOfChar() {
+    public void varyBufferContentToEmptyNextIndexOfChar() {
         String input = "";
         CharacterReader reader = new CharacterReader(input);
 
@@ -125,8 +125,8 @@ public class ISM1 {
     }
 
     @Test
-    public void varyBufferContent2NextIndexOfChar() {
-        String input = "";
+    public void varyBufferContentToSingleNextIndexOfChar() {
+        String input = "a";
         CharacterReader reader = new CharacterReader(input);
 
         //normal char
@@ -136,7 +136,7 @@ public class ISM1 {
     }
 
     @Test
-    public void varyCharSeqInput1NextIndexOfCharSeq() {
+    public void baseCaseNextIndexOfCharSeq() {
         String input = "abcdefgHI J123!";
         CharacterReader reader = new CharacterReader(input);
 
@@ -147,7 +147,7 @@ public class ISM1 {
     }
 
     @Test
-    public void varyCharSeqInput2NextIndexOfCharSeq() {
+    public void varyCharSeqInputToCapitalizedLettersNextIndexOfCharSeq() {
         String input = "abcdefgHI J123!";
         CharacterReader reader = new CharacterReader(input);
 
@@ -158,7 +158,7 @@ public class ISM1 {
     }
 
     @Test
-    public void varyCharSeqInput3NextIndexOfCharSeq() {
+    public void varyCharSeqInputToLettersAndCapitalizedLettersNextIndexOfCharSeq() {
         String input = "abcdefgHI J123!";
         CharacterReader reader = new CharacterReader(input);
 
@@ -169,18 +169,7 @@ public class ISM1 {
     }
 
     @Test
-    public void varyCharSeqInput4NextIndexOfCharSeq() {
-        String input = "abcdefgHI J123!";
-        CharacterReader reader = new CharacterReader(input);
-
-        //normal combined char seq with space
-        CharSequence searchSeq = "fgHI ";
-        int nextIndex = reader.nextIndexOf(searchSeq);
-        assertEquals(5, nextIndex);
-    }
-
-    @Test
-    public void varyCharSeqInput5NextIndexOfCharSeq() {
+    public void varyCharSeqInputToNumNextIndexOfCharSeq() {
         String input = "abcdefgHI J123!";
         CharacterReader reader = new CharacterReader(input);
 
@@ -191,7 +180,7 @@ public class ISM1 {
     }
 
     @Test
-    public void varyCharSeqInput6NextIndexOfCharSeq() {
+    public void varyCharSeqInputToNumAndSymbolNextIndexOfCharSeq() {
         String input = "abcdefgHI J123!";
         CharacterReader reader = new CharacterReader(input);
 
@@ -202,7 +191,7 @@ public class ISM1 {
     }
 
     @Test
-    public void varyCharSeqInput7NextIndexOfCharSeq() {
+    public void varyCharSeqInputToSymbolNextIndexOfCharSeq() {
         String input = "abcdefgHI J123!";
         CharacterReader reader = new CharacterReader(input);
 
@@ -213,7 +202,7 @@ public class ISM1 {
     }
 
     @Test
-    public void varyCharSeqInput8NextIndexOfCharSeq() {
+    public void varyCharSeqInputToCapitalizedLetterAndNumNextIndexOfCharSeq() {
         String input = "abcdefgHI J123!";
         CharacterReader reader = new CharacterReader(input);
 
@@ -224,7 +213,7 @@ public class ISM1 {
     }
 
     @Test
-    public void varyCharSeqInput9NextIndexOfCharSeq() {
+    public void varyCharSeqInputToLetterAndNumNextIndexOfCharSeq() {
         String input = "abcdefgHI J123!";
         CharacterReader reader = new CharacterReader(input);
 
@@ -235,8 +224,30 @@ public class ISM1 {
     }
 
     @Test
-    public void varyBufferContent1NextIndexOfCharSeq() {
+    public void varyCharSeqInputToAllCombinedNextIndexOfCharSeq() {
+        String input = "abcdefgHI J123!";
+        CharacterReader reader = new CharacterReader(input);
+
+        //invalid: non-capitalized letter and numbers
+        CharSequence searchSeq = "abcdefgHI J123!";
+        int nextIndex = reader.nextIndexOf(searchSeq);
+        assertEquals(0, nextIndex);
+    }
+
+    @Test
+    public void varyBufferContentToEmptyNextIndexOfCharSeq() {
         String input = "";
+        CharacterReader reader = new CharacterReader(input);
+
+        //invalid: normal char seq input
+        CharSequence searchSeq = "efg";
+        int nextIndex = reader.nextIndexOf(searchSeq);
+        assertEquals(-1, nextIndex);
+    }
+
+    @Test
+    public void varyBufferContentToSingleNextIndexOfCharSeq() {
+        String input = "a";
         CharacterReader reader = new CharacterReader(input);
 
         //invalid: normal char seq input

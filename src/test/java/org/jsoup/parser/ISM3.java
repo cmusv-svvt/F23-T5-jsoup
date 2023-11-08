@@ -107,6 +107,16 @@ public class ISM3 {
     }
 
     @Test
+    public void varyBufferContentToSingleConsumeToChar() {
+        String input = "a";
+        CharacterReader reader = new CharacterReader(input);
+
+        char targetChar = 'e';
+        String consumed = reader.consumeTo(targetChar);
+        assertEquals("a", consumed);
+    }
+
+    @Test
     public void baseCaseConsumeToString() {
         String input = "abc@DeF;g567";
         CharacterReader reader = new CharacterReader(input);
@@ -144,6 +154,16 @@ public class ISM3 {
         String targetSeq = "c@DeF";
         String consumed = reader.consumeTo(targetSeq);
         assertEquals("", consumed);
+    }
+
+    @Test
+    public void varyBufferContentToSingleConsumeToString() {
+        String input = "a";
+        CharacterReader reader = new CharacterReader(input);
+
+        String targetSeq = "c@DeF";
+        String consumed = reader.consumeTo(targetSeq);
+        assertEquals("a", consumed);
     }
 
     @Test
