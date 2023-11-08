@@ -1,13 +1,16 @@
 package org.jsoup.parser;
 
-import org.junit.jupiter.api.Test;
-import java.lang.ArrayIndexOutOfBoundsException;
-import java.util.Arrays;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.io.FileReader;
 import java.io.Reader;
 import java.io.StringReader;
-import java.io.FileReader;
+import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 public class CharacterReaderTestOscar {
     public final static int maxBufferLen = CharacterReader.maxBufferLen;

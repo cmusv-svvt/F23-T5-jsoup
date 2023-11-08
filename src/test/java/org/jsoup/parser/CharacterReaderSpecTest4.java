@@ -1,6 +1,7 @@
 package org.jsoup.parser;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 
 // Case	Input Char	Input String	Unordered input Char Array	Ordered input Char Array	Ignore Case	Position	Content	Should Match	Notes
 // 4.1	Lowercase Letters	N/A	N/A	N/A	FALSE	normal	multi chars	FALSE	Base Case with Input Char chosen

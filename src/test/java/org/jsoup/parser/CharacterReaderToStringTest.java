@@ -1,7 +1,9 @@
 package org.jsoup.parser;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class CharacterReaderToStringTest {
 
@@ -44,7 +46,7 @@ public class CharacterReaderToStringTest {
         reader.advance();
         reader.advance();
         reader.advance();
-        assertEquals("", reader.toString());
+        assertNull(reader.toString());
     }
 
     

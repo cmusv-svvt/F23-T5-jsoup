@@ -1,14 +1,8 @@
 package org.jsoup.parser;
 
-import org.jsoup.integration.ParseTest;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Test;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.StringReader;
-import java.io.UncheckedIOException;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 public class ISM1 {
     @Test
