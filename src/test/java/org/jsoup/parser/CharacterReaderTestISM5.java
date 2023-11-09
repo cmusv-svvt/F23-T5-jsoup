@@ -74,7 +74,7 @@ public class CharacterReaderTestISM5 {
 
     @Test
     public void matchesAsciiAlphaBoundaryUppercase() {
-        CharacterReader r = new CharacterReader("AY");
+        CharacterReader r = new CharacterReader("AZ");
         assertTrue(r.matchesAsciiAlpha());
         r.consume();
         assertTrue(r.matchesAsciiAlpha());
@@ -82,7 +82,7 @@ public class CharacterReaderTestISM5 {
 
     @Test
     public void matchesAsciiAlphaBoundaryLowercase() {
-        CharacterReader r = new CharacterReader("ay");
+        CharacterReader r = new CharacterReader("az");
         assertTrue(r.matchesAsciiAlpha());
         r.consume();
         assertTrue(r.matchesAsciiAlpha());

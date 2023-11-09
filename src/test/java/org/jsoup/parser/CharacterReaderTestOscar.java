@@ -67,7 +67,7 @@ public class CharacterReaderTestOscar {
     @Test
     public void testRangeEqualsWhenCountIsZero() {
         char[] charBuf = {'t', 'e', 's', 't'};
-        int start = 3;
+        int start = 0;
         int count = 0;
         String str = "";
         assertTrue(CharacterReader.rangeEquals(charBuf, start, count, str));
